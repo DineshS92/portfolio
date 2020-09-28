@@ -1,5 +1,13 @@
 [
   {
+    "home": {"url": "/", "icon": "home3", "name": "HOME"},
+    "intro": {"url": "/intro", "icon": "user", "name": "INTRO"},
+    "tech": {"url": "/tech", "icon": "layers", "name": "TECH STACKS"},
+    "projects": {"url": "/projects", "icon": "code", "name": "PROJECTS"},
+    "play": {"url": "/play", "icon": "playCircle", "name": "PLAYLIST"},
+    "contact": {"url": "/contact", "icon": "sendO", "name": "CONTACT"}
+  },
+  {
     "headline": "Lorem ipsum dolor sit amet",
     "fortypical": ["text", "more text", "also text", "so much text"],
     "image": "./images/Coding.png"

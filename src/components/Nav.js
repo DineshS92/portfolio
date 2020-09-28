@@ -1,6 +1,12 @@
-import { Link } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
+import {layers} from 'react-icons-kit/ikons/layers';
+import {home3} from 'react-icons-kit/icomoon/home3';
+import {user} from 'react-icons-kit/fa/user';
+import {code} from 'react-icons-kit/fa/code';
+import {playCircle} from 'react-icons-kit/fa/playCircle';
+import {sendO} from 'react-icons-kit/fa/sendO';
 
 const NavStyles = styled.div`
   ul {
@@ -35,6 +41,46 @@ const NavStyles = styled.div`
 `;
 
 export default function Nav() {
+
+  const data = useStaticQuery(graphql`
+    {
+      dataJson {
+        home {
+          url
+          icon
+          name
+        }
+        intro {
+          url
+          icon
+          name
+        }
+        tech {
+          url
+          icon
+          name
+        }
+        projects {
+          url
+          icon
+          name
+        }
+        play {
+          url
+          icon
+          name
+        }
+        contact {
+          url
+          icon
+          name
+        }
+      }
+    }
+  `);
+
+  console.log(Object.values(data.dataJson)[1].url);
+
   return(
     <NavStyles>
       <ul>
