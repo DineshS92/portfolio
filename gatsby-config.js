@@ -11,7 +11,8 @@ export default {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'data',
-        path: './src/data'
+        path: './src/data',
+        watchMode: true
       }
     },
     'gatsby-transformer-json'

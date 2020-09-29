@@ -8,8 +8,16 @@ import styled from 'styled-components';
 
 const LayoutContainerStyles = styled.div`
   display: flex;
+  /* height: 2000px; */
+  .children {
+    margin-left: 12.8rem;
+  }
   @media (max-width: 570px) {
     flex-direction: column;
+    .children {
+      margin-left: unset;
+      margin-top: 1.8rem;
+    }
   }
 `;
 

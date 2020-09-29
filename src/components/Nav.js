@@ -1,41 +1,42 @@
-import { graphql, Link, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
-import {layers} from 'react-icons-kit/ikons/layers';
-import {home3} from 'react-icons-kit/icomoon/home3';
-import {user} from 'react-icons-kit/fa/user';
-import {code} from 'react-icons-kit/fa/code';
-import {playCircle} from 'react-icons-kit/fa/playCircle';
-import {sendO} from 'react-icons-kit/fa/sendO';
+import NavIcon from './NavIcon';
 
 const NavStyles = styled.div`
   ul {
+    background-color: #181818;
+    font-size: 1.5rem;
     min-height: 100vh;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 0.6rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    li:hover {
-      background-color: aquamarine;
-      a {
-        color: red;
-      }
+    position: fixed;
+    top: 0;
+    left: 0;
+    li {
+      padding: 1rem 0.5rem;
     }
   }
-  @media screen and (max-width: 570px) {
-    height: 17vh;
+  @media (max-width: 570px) {
+    height: 10vh;
     ul {
+      position: unset;
       min-height: unset;
+      font-size: unset;
+      font-size: 1rem;
       height: 100%;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       align-items: space-between;
-    }
-    li {
-      padding: 0.5rem 1rem;
+      li {
+      padding: unset;
+      padding: 0.5rem 1.3rem;
+      }
     }
   }
 `;
@@ -79,11 +80,12 @@ export default function Nav() {
     }
   `);
 
-  console.log(Object.values(data.dataJson)[1].url);
+  const navIconData = Object.values(data.dataJson);
+  console.log(navIconData);
 
   return(
     <NavStyles>
-      <ul>
+      {/* <ul>
         <li>
           <Link to='/'>Home</Link>
         </li>
@@ -102,6 +104,21 @@ export default function Nav() {
         <li>
           <Link to='/contact'>Contact</Link>
         </li>
+      </ul> */}
+      <ul>
+        {
+          navIconData.map(navIcon => {
+            return(
+              <li>
+                <NavIcon
+                  icon={navIcon.icon}
+                  name={navIcon.name}
+                  url={navIcon.url}
+                  />
+              </li>
+            );
+          })
+        }
       </ul>
     </NavStyles>
   );

@@ -6,7 +6,7 @@
 	<feTurbulence type='turbulence' baseFrequency='.7' result='fuzz' numOctaves='2' stitchTiles='stitch'/>
 	<feComposite in='SourceGraphic' in2='fuzz' operator='arithmetic' k1='0' k2='1' k3='-73' k4='.01' />
 </filter>
-<rect width='102%' height='102%' fill='#03031a'/>
+<rect width='102%' height='102%' fill='#13131a'/>
 <rect x='-1%' y='-1%' width='102%' height='102%' fill='#fff' filter='url(#n)' opacity='1'/>
-<rect x='-1%' y='-1%' width='102%' height='102%' fill='#03031a' filter='url(#i)' opacity='1'/>
+<rect x='-1%' y='-1%' width='102%' height='102%' fill='#13131a' filter='url(#i)' opacity='1'/>
 </svg>
