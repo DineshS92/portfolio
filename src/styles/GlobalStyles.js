@@ -1,7 +1,11 @@
 import {createGlobalStyle} from 'styled-components';
-import bg from '../data/images/starry_night.svg';
+import bg from '../assets/images/starry_night.svg';
 
 const GlobalStyles = createGlobalStyle`
+  :root {
+    --textcolor: #DDE1E4;
+    --grayish: #181818;
+  }
   html {
     font-size: 10px;
     background-image: url(${bg});

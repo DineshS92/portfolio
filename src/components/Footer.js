@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export default function Footer() {
   return(
     <div>
-      <p>This is the footer</p>
+      <div>This is the footer</div>
     </div>
   );
 }

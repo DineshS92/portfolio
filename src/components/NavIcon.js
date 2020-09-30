@@ -19,7 +19,7 @@ const NavIconStyles = styled.div`
   }
 
   @media (max-width: 570px) {
-    max-width: 3rem;
+    max-width: 2.7rem;
   }
 `;
 

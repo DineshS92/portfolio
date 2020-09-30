@@ -5,7 +5,7 @@ import NavIcon from './NavIcon';
 
 const NavStyles = styled.div`
   ul {
-    background-color: #181818;
+    background-color: var(--grayish);
     font-size: 1.5rem;
     min-height: 100vh;
     list-style: none;
@@ -31,11 +31,10 @@ const NavStyles = styled.div`
       height: 100%;
       display: flex;
       flex-direction: row;
-      flex-wrap: wrap;
       align-items: space-between;
       li {
       padding: unset;
-      padding: 0.5rem 1.3rem;
+      padding: 0.5rem 1.4rem;
       }
     }
   }
@@ -44,7 +43,7 @@ const NavStyles = styled.div`
 export default function Nav() {
 
   const data = useStaticQuery(graphql`
-    {
+    query {
       dataJson {
         home {
           url
@@ -81,7 +80,6 @@ export default function Nav() {
   `);
 
   const navIconData = Object.values(data.dataJson);
-  console.log(navIconData);
 
   return(
     <NavStyles>

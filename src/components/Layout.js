@@ -10,13 +10,29 @@ const LayoutContainerStyles = styled.div`
   display: flex;
   /* height: 2000px; */
   .children {
-    margin-left: 12.8rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 75vw;
+    margin: 0 auto 0 14.5rem;
+    padding: 2.5rem 2.5rem 0 2.5rem;
+    background-color: var(--grayish);
+    border-radius: 5px;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.044);
   }
   @media (max-width: 570px) {
     flex-direction: column;
+    align-items: center;
+    .navigation {
+      width: 100%;
+    }
     .children {
-      margin-left: unset;
-      margin-top: 1.8rem;
+      padding: unset;
+      margin: unset;
+      padding: 1.5rem 1.5rem 0 1.5rem;
+      margin: 3rem auto 0;
     }
   }
 `;
