@@ -21,6 +21,14 @@ export default {
         name: `data`,
         path: `${__dirname}/src/data/`
       },
-    }
+    },
+    // {
+    //   resolve: `gatsby-source-youtube-v2`,
+    //   options: {
+    //     channelId: ['UC8butISFwT-Wl7EV0hUK0BQ'],
+    //     apiKey: process.env.API_KEY,
+    //     maxVideos: 200
+    //   }
+    // }
   ]
 }

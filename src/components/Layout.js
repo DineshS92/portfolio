@@ -22,7 +22,7 @@ const LayoutContainerStyles = styled.div`
     border-radius: 5px;
     box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.044);
   }
-  @media (max-width: 570px) {
+  @media (max-width: 560px) {
     flex-direction: column;
     align-items: center;
     .navigation {
@@ -32,7 +32,7 @@ const LayoutContainerStyles = styled.div`
       padding: unset;
       margin: unset;
       padding: 1.5rem 1.5rem 0 1.5rem;
-      margin: 3rem auto 0;
+      margin: 2rem auto 0;
     }
   }
 `;

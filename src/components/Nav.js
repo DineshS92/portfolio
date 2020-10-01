@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import NavIcon from './NavIcon';
 
-const NavStyles = styled.div`
+const NavStyles = styled.nav`
   ul {
     background-color: var(--grayish);
     font-size: 1.5rem;
@@ -21,7 +21,7 @@ const NavStyles = styled.div`
       padding: 1rem 0.5rem;
     }
   }
-  @media (max-width: 570px) {
+  @media (max-width: 560px) {
     height: 10vh;
     ul {
       position: unset;

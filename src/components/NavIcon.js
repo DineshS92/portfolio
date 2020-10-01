@@ -18,7 +18,7 @@ const NavIconStyles = styled.div`
     margin-bottom: 5px;
   }
 
-  @media (max-width: 570px) {
+  @media (max-width: 560px) {
     max-width: 2.7rem;
   }
 `;
