@@ -1,7 +1,8 @@
 
 import React, { useEffect, useState } from 'react';
+import ReactPlayer from 'react-player';
 import styled from 'styled-components';
-import YTcard from '../components/YTcard';
+// import YTcard from '../components/YTcard';
 
 const PlayStyled = styled.div`
   display: flex;
@@ -25,7 +26,10 @@ const StyledGrid = styled.div`
   margin: 1.5rem 0;
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  @media(max-width: 560px) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
 `;
 
 export default function Play() {
@@ -47,7 +51,8 @@ export default function Play() {
         {
           items.length !== 0
           ? (items.items.map(item => {
-            return <YTcard vidId={item.id.videoId}/>
+            // return <YTcard vidId={item.id.videoId}/>
+            return <ReactPlayer url={`https://www.youtube.com/watch?v=${item.id.videoId}`} width='100%' height='280px'/>
           }))
           : <p>Loading</p>
         }
