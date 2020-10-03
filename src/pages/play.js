@@ -37,8 +37,6 @@ export default function Play() {
     .then(json => setItems(json));
   }, []);
 
-  console.log(items);
-
   return(
     <PlayStyled>
       <HeaderStyles>
