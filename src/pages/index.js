@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import Typical from 'react-typical';
 
 export default function Home({data}) {
-  console.log(data.allDataJson);
 
   const IndexStyles = styled.div`
     width: 100%;

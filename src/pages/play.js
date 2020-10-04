@@ -31,7 +31,21 @@ const StyledGrid = styled.div`
   }
 `;
 
-export default function Play() {
+export const playQuery = graphql`
+  {
+    allDataJson {
+      nodes {
+        playcontent
+        playheadline
+        playhighlight
+      }
+    }
+  }
+`;
+
+export default function Play({data}) {
+
+  console.log(data.allDataJson);
 
   const [items, setItems] = useState([]);
   useEffect(() => {
@@ -43,16 +57,16 @@ export default function Play() {
   return(
     <PlayStyled>
       <HeaderStyles>
-        Treat Yourself to some Live <StyledSpan>LoFi hip-hop music</StyledSpan>
+        {data.allDataJson.nodes[2].playheadline} <StyledSpan>{data.allDataJson.nodes[2].playhighlight}</StyledSpan>
       </HeaderStyles>
-      <p>LoFi hip-hop refers to a genre of music that combines hip hop and jazz to create relaxing and atmospheric instrumentals</p>
+      <p>{data.allDataJson.nodes[2].playcontent}</p>
       <StyledGrid>
         {
           items.length !== 0
           ? (items.items.map(item => {
             return <ReactPlayer url={`https://www.youtube.com/watch?v=${item.id.videoId}`} width='100%' height='280px'/>
           }))
-          : <p>Loading</p>
+          : null
         }
       </StyledGrid>
     </PlayStyled>

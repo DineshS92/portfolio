@@ -11,5 +11,10 @@
     "headline": "Hello, I'm Dinesh",
     "headline1": "I'm a Full Stack Web Developer who",
     "typical": ["builds scalable apps", "builds secure apps", "enjoys solving problems", "understands the big picture"]
+  },
+  {
+    "playheadline": "Treat Yourself to some Live",
+    "playhighlight": "LoFi hip-hop music",
+    "playcontent": "LoFi hip-hop refers to a genre of music that combines hip hop and jazz to create relaxing and atmospheric instrumentals"
   }
 ]
