@@ -54,7 +54,7 @@ export default function Home({data}) {
           {data.allDataJson.nodes[1].headline}<span>👋</span><br/><br/>
           {data.allDataJson.nodes[1].headline1}{' '}
           <Typical
-            steps={[data.allDataJson.nodes[1].typical[0], 3500, data.allDataJson.nodes[1].typical[1], 3500, data.allDataJson.nodes[1].typical[2], 3500, data.allDataJson.nodes[1].typical[3], 3500]}
+            steps={[data.allDataJson.nodes[1].typical[0], 3500, data.allDataJson.nodes[1].typical[1], 3500, data.allDataJson.nodes[1].typical[2], 3500]}
             loop={Infinity}
             wrapper='span'
             />

@@ -6,6 +6,9 @@ import styled from 'styled-components';
 const PlayStyled = styled.div`
   display: flex;
   flex-direction: column;
+  p {
+    font-weight: 100;
+  }
 `;
 
 const HeaderStyles = styled.h1`
