@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import sanityClient from '@sanity/client';
+// import sanityClient from '@sanity/client';
 
 export default function Contact() {
 
