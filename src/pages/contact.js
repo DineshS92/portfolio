@@ -28,9 +28,6 @@ export default function Contact() {
     .then(res => console.log('success'));
   }
 
-  // console.log(form);
-
-
 
   return(
     <>
