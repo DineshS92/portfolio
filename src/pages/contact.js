@@ -14,9 +14,6 @@ export default function Contact() {
   const sendToSanity = () => {
     fetch('https://determined-elion-16345f.netlify.app/functions/createlead', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
       body: JSON.stringify({
         _type: 'form',
         name: form.name,
