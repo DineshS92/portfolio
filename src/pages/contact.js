@@ -15,8 +15,7 @@ export default function Contact() {
     fetch('https://determined-elion-16345f.netlify.app/.netlify/functions/createlead', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         _type: 'form',
