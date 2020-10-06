@@ -12,7 +12,7 @@ export default function Contact() {
   }
 
   const sendToSanity = () => {
-    fetch('/.netlify/functions/createlead', {
+    fetch('https://determined-elion-16345f.netlify.app/.netlify/functions/createlead', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
