@@ -3,6 +3,10 @@ import dotenv from 'dotenv';
 dotenv.config({ path: '.env' });
 
 export default {
+  proxy: {
+    prefix: "/.netlify",
+    url: "https://determined-elion-16345f.netlify.app",
+  },
   plugins: [
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
