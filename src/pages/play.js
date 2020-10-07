@@ -50,7 +50,7 @@ export default function Play({data}) {
 
   const [items, setItems] = useState([]);
   useEffect(() => {
-    fetch(`.netlify/functions/fetchVideos`)
+    fetch(`/.netlify/functions/fetchVideos`)
     .then(res => res.json())
     .then(json => setItems(json));
   }, []);
