@@ -10,7 +10,6 @@ const client = sanityClient({
 
 exports.handler = async(event, context) => {
   const {_type, name, email, message} = JSON.parse(event.body);
-  console.log(JSON.parse(event.body));
   
   const data = await client.create({
     _type: _type,
