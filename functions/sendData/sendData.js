@@ -18,16 +18,12 @@ exports.handler = async(event, context) => {
       email: email,
       message: message
     })
-      .then(console.log('success upload'))
-      return {
-        statusCode: 200,
-        body: JSON.stringify('success')
-      }
+      .then(res => console.log(res._id))
   } catch (error) {
     console.log(error)
   }
-  // return {
-  //   statusCode: 200,
-  //   body: JSON.stringify('success')
-  // }
+  return {
+    statusCode: 200,
+    body: JSON.stringify('success')
+  }
 }
