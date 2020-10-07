@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import ReactPlayer from 'react-player';
+// import ReactPlayer from 'react-player';
 import styled from 'styled-components';
+import YouTube from '@u-wave/react-youtube';
 
 const PlayStyled = styled.div`
   display: flex;
@@ -47,14 +48,14 @@ export const playQuery = graphql`
 
 export default function Play({data}) {
 
-  console.log(data.allDataJson);
-
   const [items, setItems] = useState([]);
   useEffect(() => {
-    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&key=${process.env.GATSBY_API_KEY}&type=video&q=lofi&hip&hop&eventType=live&maxResults=10`)
+    fetch(`http://localhost:8888/.netlify/functions/fetchVideos`)
     .then(res => res.json())
     .then(json => setItems(json));
   }, []);
+
+  console.log(items);
 
   return(
     <PlayStyled>
@@ -66,7 +67,7 @@ export default function Play({data}) {
         {
           items.length !== 0
           ? (items.items.map(item => {
-            return <ReactPlayer url={`https://www.youtube.com/watch?v=${item.id.videoId}`} width='100%' height='280px'/>
+            return <YouTube video={item.id.videoId} width='100%' height='280px' />
           }))
           : null
         }
