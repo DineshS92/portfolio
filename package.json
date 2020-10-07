@@ -15,7 +15,6 @@
     "prebuild": "netlify-lambda install"
   },
   "dependencies": {
-    "@sanity/client": "^1.150.7",
     "@u-wave/react-youtube": "^0.7.1",
     "babel-plugin-styled-components": "^1.11.1",
     "dotenv": "^8.2.0",
