@@ -13,6 +13,7 @@ const StyledForm = styled.form`
 export default function Contact() {
 
   const [form, setForm] = useState({name: '', email: '', message: ''});
+  const [submit, setSubmit] = useState(false);
 
   const handleChange = e => {
     setForm({
@@ -34,7 +35,11 @@ export default function Contact() {
         })
       });
       const data = await res.json();
-      console.log(data);
+      if(data === 'success') {
+        setSubmit(true);
+      } else {
+        console.log(data);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -43,18 +48,24 @@ export default function Contact() {
   
   return(
     <>
-      <StyledForm onSubmit={sendToSanity}>
-        <label>Name:{' '} 
-          <input type='text' required name='name' onChange={handleChange}/>
-        </label>
-        <label>Email:{' '}
-          <input type='email' required name='email' onChange={handleChange}/>
-        </label>
-        <label>Message:{' '}
-          <textarea name='message' onChange={handleChange} />
-        </label>
-        <button type='submit'>Send Message</button>
-      </StyledForm>
+      {
+        submit === false 
+        ? (
+          <StyledForm onSubmit={sendToSanity}>
+            <label>Name:{' '} 
+              <input type='text' required name='name' onChange={handleChange}/>
+            </label>
+            <label>Email:{' '}
+              <input type='email' required name='email' onChange={handleChange}/>
+            </label>
+            <label>Message:{' '}
+              <textarea name='message' onChange={handleChange} />
+            </label>
+            <button type='submit'>Send Message</button>
+          </StyledForm>
+        )
+        : <p>Thanks for your query. We will talk soon</p>
+      }
     </>
   );
 }
