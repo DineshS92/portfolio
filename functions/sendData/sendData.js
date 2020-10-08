@@ -9,7 +9,21 @@ const client = sanityClient({
 
 
 exports.handler = async(event, context) => {
-  const {_type, name, email, message} = JSON.parse(event.body);
+  const {_type, name, email, message, courses} = JSON.parse(event.body);
+
+  if(courses) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({message: 'Woah! Hey! Only real people are allowed to contact me: ERR 2020'})
+    }
+  }
+
+  if(!name || !email || !message) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({message: 'You have left a field empty'})
+    }
+  }
   
   const data = await client.create({
     _type: _type,
@@ -21,7 +35,7 @@ exports.handler = async(event, context) => {
   if(JSON.stringify(data)) {
     return {
       statusCode: 200,
-      body: JSON.stringify('success')
+      body: JSON.stringify({message: 'Thanks for getting in touch. We will talk soon'})
     }
   }
 }

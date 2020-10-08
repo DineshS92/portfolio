@@ -8,12 +8,16 @@ const StyledForm = styled.form`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    .courses {
+      display: none;
+    }
 `;
 
 export default function Contact() {
 
-  const [form, setForm] = useState({name: '', email: '', message: ''});
+  const [form, setForm] = useState({name: '', email: '', message: '', courses: ''});
   const [submit, setSubmit] = useState(false);
+  const [message, setMessage] = useState('');
 
   const handleChange = e => {
     setForm({
@@ -31,41 +35,36 @@ export default function Contact() {
           _type: 'form',
           name: form.name,
           email: form.email,
-          message: form.message
+          message: form.message,
+          courses: form.courses
         })
       });
       const data = await res.json();
-      if(data === 'success') {
+      if(data) {
         setSubmit(true);
-      } else {
-        console.log(data);
+        setMessage(data.message);
       }
     } catch (error) {
       console.log(error);
     }
   }
 
-  
   return(
     <>
-      {
-        submit === false 
-        ? (
-          <StyledForm onSubmit={sendToSanity}>
-            <label>Name:{' '} 
-              <input type='text' required name='name' onChange={handleChange}/>
-            </label>
-            <label>Email:{' '}
-              <input type='email' required name='email' onChange={handleChange}/>
-            </label>
-            <label>Message:{' '}
-              <textarea name='message' onChange={handleChange} />
-            </label>
-            <button type='submit'>Send Message</button>
-          </StyledForm>
-        )
-        : <p>Thanks for your query. We will talk soon</p>
-      }
+      <StyledForm onSubmit={sendToSanity}>
+        <label>Name:{' '} 
+          <input type='text' name='name' onChange={handleChange}/>
+        </label>
+        <label>Email:{' '}
+          <input type='email' name='email' onChange={handleChange}/>
+        </label>
+        <label>Message:{' '}
+          <textarea name='message' onChange={handleChange} />
+        </label>
+        <input className='courses' type='courses' name='courses' onChange={handleChange}/>
+        <button type='submit'>Send Message</button>
+      </StyledForm>
+      <p>{message}</p>
     </>
   );
 }
