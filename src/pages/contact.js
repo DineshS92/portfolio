@@ -20,9 +20,16 @@ export default function Contact() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    fetch('/.netlify/functions/distFromMe')
+    fetch('https://api.ipify.org/?format=json')
       .then(res => res.json())
-      .then(data => console.log(data))
+      .then(data => fetch('/.netlify/functions/distFromMe', {
+                      method: 'POST',
+                      body: JSON.stringify({
+                        ipAdd: data.ip
+                      })
+                    })
+                      .then(city => city.json())
+                      .then(cityJson => console.log(cityJson)))
   }, []);
 
   const handleChange = e => {
