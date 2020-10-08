@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 
 const StyledForm = styled.form`
@@ -18,6 +18,12 @@ export default function Contact() {
   const [form, setForm] = useState({name: '', email: '', message: '', courses: ''});
   const [submit, setSubmit] = useState(false);
   const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    fetch('/.netlify/functions/distFromMe')
+      .then(res => res.json())
+      .then(data => console.log(data))
+  }, []);
 
   const handleChange = e => {
     setForm({
