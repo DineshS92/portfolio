@@ -40,9 +40,9 @@ export default function Contact() {
         })
       });
       const data = await res.json();
-      if(data) {
+      setMessage(data.message);
+      if(data.message === 'Thanks for getting in touch. We will talk soon') {
         setSubmit(true);
-        setMessage(data.message);
       }
     } catch (error) {
       console.log(error);
@@ -51,20 +51,28 @@ export default function Contact() {
 
   return(
     <>
-      <StyledForm onSubmit={sendToSanity}>
-        <label>Name:{' '} 
-          <input type='text' name='name' onChange={handleChange}/>
-        </label>
-        <label>Email:{' '}
-          <input type='email' name='email' onChange={handleChange}/>
-        </label>
-        <label>Message:{' '}
-          <textarea name='message' onChange={handleChange} />
-        </label>
-        <input className='courses' type='courses' name='courses' onChange={handleChange}/>
-        <button type='submit'>Send Message</button>
-      </StyledForm>
-      <p>{message}</p>
+      {
+        submit === false
+        ? (
+          <>
+            <StyledForm onSubmit={sendToSanity}>
+              <label>Name:{' '} 
+                <input type='text' name='name' onChange={handleChange}/>
+              </label>
+              <label>Email:{' '}
+                <input type='email' name='email' onChange={handleChange}/>
+              </label>
+              <label>Message:{' '}
+                <textarea name='message' onChange={handleChange} />
+              </label>
+              <input className='courses' type='courses' name='courses' onChange={handleChange}/>
+              <button type='submit'>Send Message</button>
+            </StyledForm>
+            <p>{message}</p>
+          </>
+        )
+        : <p>{message}</p>
+      }
     </>
   );
 }
