@@ -11,6 +11,6 @@ exports.handler = async(event, context) => {
   let distJson = await dist.json()
   return {
     statusCode: 200,
-    body: JSON.stringify(distJson.distance)
+    body: JSON.stringify(cityJson.data.geo)
   }
 }
