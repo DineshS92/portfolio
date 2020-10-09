@@ -9,7 +9,7 @@ const StyledContact = styled.div`
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  align-items: center;
+  align-content: center;
   justify-content: center;
   .distance {
     padding: 4rem 2rem;
