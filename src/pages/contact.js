@@ -2,14 +2,15 @@ import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 
 const StyledContact = styled.div`
+  text-align: center;
   width: 100%;
   height: 80%;
   margin: 8rem 0;
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  /* align-items: center; */
-  /* justify-items: center; */
+  align-items: center;
+  justify-content: center;
   .distance {
     padding: 4rem 2rem;
 
@@ -23,8 +24,9 @@ const StyledForm = styled.form`
     /* /* height: 100%; */
     padding: 0 2rem;
     textarea, input {
-      max-width: 100%;
+      width: 80%;
       overflow: unset;
+      box-sizing: border-box;
     }
     .courses {
       display: none;
