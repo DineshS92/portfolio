@@ -13,7 +13,6 @@ const StyledContact = styled.div`
   justify-content: center;
   .distance {
     padding: 4rem 2rem;
-
     p {
       margin: 0;
     }
