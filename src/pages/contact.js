@@ -11,15 +11,19 @@ const StyledContact = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   align-content: center;
   justify-content: center;
-  @media(max-width: 560px) {
-    justify-content: unset;
-    align-content: center;
-  }
   .distance {
     padding: 4rem 2rem;
 
     p {
       margin: 0;
+    }
+  }
+  @media(max-width: 560px) {
+    margin: 2rem 0;
+    align-content: center;
+    .distance {
+      padding: unset;
+      padding: 2rem;
     }
   }
 `;
