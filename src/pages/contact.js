@@ -5,12 +5,16 @@ const StyledContact = styled.div`
   text-align: center;
   width: 100%;
   height: 80%;
-  margin: 8rem 0;
+  margin: 7rem 0;
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   align-content: center;
   justify-content: center;
+  @media(max-width: 560px) {
+    justify-content: unset;
+    align-content: center;
+  }
   .distance {
     padding: 4rem 2rem;
 
