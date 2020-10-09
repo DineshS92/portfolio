@@ -22,7 +22,7 @@ const StyledContact = styled.div`
 const StyledForm = styled.form`
     /* /* height: 100%; */
     padding: 0 2rem;
-    input {
+    textarea, input {
       max-width: 100%;
       overflow: unset;
     }
