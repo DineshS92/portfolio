@@ -19,7 +19,7 @@ const StyledContact = styled.div`
   }
   @media(max-width: 560px) {
     height: unset;
-    height: 50%;
+    height: 55%;
     margin: 2rem 0;
     align-content: center;
     .distance {
