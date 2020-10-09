@@ -8,7 +8,7 @@ const StyledContact = styled.div`
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  align-items: center;
+  /* align-items: center; */
   /* justify-items: center; */
   .distance {
     padding: 4rem 2rem;
@@ -21,8 +21,11 @@ const StyledContact = styled.div`
 
 const StyledForm = styled.form`
     /* /* height: 100%; */
-    max-width: 100%; 
-    padding: 3rem 2rem;
+    padding: 0 2rem;
+    input {
+      max-width: 100%;
+      overflow: unset;
+    }
     .courses {
       display: none;
     }
