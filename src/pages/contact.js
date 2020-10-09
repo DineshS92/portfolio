@@ -1,13 +1,28 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 
+const StyledContact = styled.div`
+  width: 100%;
+  height: 80%;
+  margin: 8rem 0;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-items: center;
+  /* justify-items: center; */
+  .distance {
+    padding: 4rem 2rem;
+
+    p {
+      margin: 0;
+    }
+  }
+`;
+
 const StyledForm = styled.form`
-    height: 80%;
-    margin: auto 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    /* height: 100%;
+    width: 100%; */
+    padding: 3rem 2rem;
     .courses {
       display: none;
     }
@@ -67,22 +82,25 @@ export default function Contact() {
       {
         submit === false
         ? (
-          <>
+          <StyledContact>
+            <div className='distance'>
+              <p>Some Very Motivating Text Goes Here</p>
+            </div>
             <StyledForm onSubmit={sendToSanity}>
-              <label>Name:{' '} 
-                <input type='text' name='name' onChange={handleChange}/>
-              </label>
-              <label>Email:{' '}
-                <input type='email' name='email' onChange={handleChange}/>
-              </label>
-              <label>Message:{' '}
-                <textarea name='message' onChange={handleChange} />
-              </label>
+              <div> 
+                <input type='text' placeholder='Name' name='name' onChange={handleChange}/>
+              </div>
+              <div>
+                <input type='email' placeholder='Email' name='email' onChange={handleChange}/>
+              </div>
+              <div>
+                <textarea name='message' placeholder='message' onChange={handleChange} />
+              </div>
               <input className='courses' type='courses' name='courses' onChange={handleChange}/>
               <button type='submit'>Send Message</button>
+              <p>{message}</p>
             </StyledForm>
-            <p>{message}</p>
-          </>
+          </StyledContact>
         )
         : <p>{message}</p>
       }
