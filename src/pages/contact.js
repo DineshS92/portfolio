@@ -20,8 +20,8 @@ const StyledContact = styled.div`
 `;
 
 const StyledForm = styled.form`
-    /* height: 100%;
-    width: 100%; */
+    /* /* height: 100%; */
+    max-width: 100%; 
     padding: 3rem 2rem;
     .courses {
       display: none;
