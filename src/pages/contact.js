@@ -1,10 +1,11 @@
+import { graphql } from 'gatsby';
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 
 const StyledContact = styled.div`
   text-align: center;
   width: 100%;
-  height: 80%;
+  height: 100%;
   margin: 5rem 0;
   .distance {
     margin: 5rem 0;
@@ -34,11 +35,45 @@ const StyledForm = styled.form`
     }
 `;
 
-export default function Contact() {
+const HeaderStyles = styled.h1`
+  font-weight: 700;
+  font-size: 3.5rem;
+  word-wrap: break-word;
+  max-width: 100%;
+  @media screen and (max-width: 560px) {
+    font-size: 2rem;
+  }
+`;
+
+const StyledSpan = styled.span`
+  background-image: linear-gradient(to right, transparent 50%, #7851a9 50%);
+  background-origin: 0;
+  background-size: 200% 40%;
+  background-repeat: repeat-x;
+  background-position: -100% 100%;
+`;
+
+export const contactQuery = graphql`
+  {
+    allDataJson {
+      nodes {
+        emailCF
+        loading
+        headlineCF1
+        headlineCF2
+        headlineCF3
+        connect
+      }
+    }
+  }
+`;
+
+export default function Contact({data}) {
 
   const [form, setForm] = useState({name: '', email: '', message: '', courses: ''});
   const [submit, setSubmit] = useState(false);
   const [message, setMessage] = useState('');
+  const [distance, setDistance] = useState(null);
 
   useEffect(() => {
     fetch('https://api.ipify.org/?format=json')
@@ -50,8 +85,10 @@ export default function Contact() {
                       })
                     })
                       .then(city => city.json())
-                      .then(cityJson => console.log(cityJson)))
+                      .then(cityJson => setDistance(cityJson.distance)))
   }, []);
+
+  console.log(distance);
 
   const handleChange = e => {
     setForm({
@@ -90,7 +127,13 @@ export default function Contact() {
         ? (
           <StyledContact>
             <div className='distance'>
-              <p>Some Very Motivating Text Goes Here</p>
+              {
+                distance === null
+                ? <HeaderStyles><StyledSpan>{data.allDataJson.nodes[3].loading}</StyledSpan></HeaderStyles>
+                : distance === 0
+                  ? <HeaderStyles>{data.allDataJson.nodes[3].connect}<br />{data.allDataJson.nodes[3].headlineCF1} <StyledSpan>{data.allDataJson.nodes[3].emailCF}</StyledSpan> </HeaderStyles>
+                  : <HeaderStyles>{data.allDataJson.nodes[3].headlineCF2}<StyledSpan> {distance} Kms or {Math.floor(distance * 0.62)} Miles </StyledSpan>{data.allDataJson.nodes[3].headlineCF3}</HeaderStyles>
+              }
             </div>
             <StyledForm onSubmit={sendToSanity}>
               <div> 
@@ -108,7 +151,7 @@ export default function Contact() {
             </StyledForm>
           </StyledContact>
         )
-        : <p>{message}</p>
+        : <HeaderStyles>{message}</HeaderStyles>
       }
     </>
   );

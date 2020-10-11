@@ -67,7 +67,7 @@ export default function Play({data}) {
           ? (items.items.map(item => {
             return <YouTube video={item.id.videoId} width='100%' height='280px' />
           }))
-          : null
+          : <HeaderStyles><StyledSpan>Loading...</StyledSpan></HeaderStyles>
         }
       </StyledGrid>
     </PlayStyled>
