@@ -12,16 +12,10 @@ const NavIconStyles = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-
   .icon {
     font-size: 2.3rem;
     margin-bottom: 5px;
-    font-weight: 100;
   }
-  #icon-name {
-    font-weight: 800;
-  }
-
   @media (max-width: 560px) {
     max-width: 2.7rem;
   }
@@ -54,7 +48,7 @@ export default function NavIcon({icon, name, url}) {
     <Link to={url}>
       <NavIconStyles>
         {iconToRender}
-       <span id='icon-name'>{name}</span>
+        {name}
       </NavIconStyles>
     </Link>
   );
