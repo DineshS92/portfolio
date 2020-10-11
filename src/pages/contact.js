@@ -5,32 +5,16 @@ const StyledContact = styled.div`
   text-align: center;
   width: 100%;
   height: 80%;
-  margin: 7rem 0;
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  align-content: center;
-  justify-content: center;
+  margin: 5rem 0;
   .distance {
-    padding: 4rem 2rem;
-    p {
-      margin: 0;
-    }
+    margin: 5rem 0;
   }
-  @media(max-width: 560px) {
-    height: unset;
-    height: 50%;
-    margin: 2rem 0;
-    align-content: center;
-    .distance {
-      padding: unset;
-      padding: 2rem;
-    }
+  @media screen and (max-width: 560px) {
+    margin: 0;
   }
 `;
 
 const StyledForm = styled.form`
-    /* /* height: 100%; */
     padding: 0 2rem;
     textarea, input {
       width: 80%;
@@ -39,6 +23,14 @@ const StyledForm = styled.form`
     }
     .courses {
       display: none;
+    }
+    @media screen and (max-width: 560px) {
+      padding: unset;
+      textarea, input {
+      width: 100%;
+      overflow: unset;
+      box-sizing: border-box;
+      }
     }
 `;
 
