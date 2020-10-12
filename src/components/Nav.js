@@ -27,11 +27,12 @@ const NavStyles = styled.nav`
       position: unset;
       min-height: unset;
       font-size: unset;
-      font-size: 1rem;
+      font-size: 1.2rem;
       height: 100%;
       display: flex;
       flex-direction: row;
-      align-items: space-between;
+      justify-content: space-around;
+      align-items: center;
       li {
       padding: unset;
       padding: 0.5rem 1.4rem;
@@ -51,11 +52,6 @@ export default function Nav() {
           name
         }
         intro {
-          url
-          icon
-          name
-        }
-        tech {
           url
           icon
           name

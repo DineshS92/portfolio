@@ -30,9 +30,6 @@ export default function NavIcon({icon, name, url}) {
     case "about":
       iconToRender = <FiUser className='icon' />;
       break;
-    case "tech":
-      iconToRender = <FiLayers className='icon' />;
-      break;
     case "project":
       iconToRender = <BsCodeSlash className='icon' />;
       break;

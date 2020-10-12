@@ -2,7 +2,6 @@
   {
     "home": {"url": "/", "icon": "home", "name": "HOME"},
     "intro": {"url": "/about", "icon": "about", "name": "ABOUT"},
-    "tech": {"url": "/tech", "icon": "tech", "name": "TECH STACKS"},
     "projects": {"url": "/projects", "icon": "project", "name": "PROJECTS"},
     "play": {"url": "/play", "icon": "play", "name": "PLAYLIST"},
     "contact": {"url": "/contact", "icon": "contact", "name": "CONTACT"}
