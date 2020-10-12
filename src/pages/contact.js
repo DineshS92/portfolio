@@ -15,13 +15,52 @@ const StyledContact = styled.div`
     margin: 0;
   }
 `;
+const FormWrapper = styled.div`
+  width: 80%;
+  padding: 72px 55px 90px 55px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: ghostwhite;
+  @media screen and (max-width: 560px) {
+    width: unset;
+    padding: 72px 15px 90px 15px;
+  }
+`;
 
 const StyledForm = styled.form`
-    padding: 0 2rem;
+    width: 100%;
     textarea, input {
-      width: 80%;
+      width: 100%;
+      border: none;
+      background: transparent;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid #adadad;
       overflow: unset;
       box-sizing: border-box;
+      font-size: 1.5rem;
+      line-height: 1.2;
+      outline: none;
+    }
+    input {
+      height: 4.5rem;
+    }
+    textarea {
+      height: 8rem;
+      padding: 1rem 0;
+    }
+    button {
+      cursor: pointer;
+      font-size: 1.5rem;
+      height: 4rem;
+      width: 200px;
+      border: none;
+      border-radius: 5px;
+      background: var(--grayish);
+      color: var(--textcolor);
+    }
+    p {
+      color: #000;
+      text-decoration: underline;
     }
     .courses {
       display: none;
@@ -136,20 +175,22 @@ export default function Contact({data}) {
                   : <HeaderStyles>{data.allDataJson.nodes[3].headlineCF2}<StyledSpan> {distance} Kms or {Math.floor(distance * 0.62)} Miles </StyledSpan>{data.allDataJson.nodes[3].headlineCF3}</HeaderStyles>
               }
             </div>
-            <StyledForm onSubmit={sendToSanity}>
-              <div> 
-                <input type='text' placeholder='Name' name='name' onChange={handleChange}/>
-              </div>
-              <div>
-                <input type='email' placeholder='Email' name='email' onChange={handleChange}/>
-              </div>
-              <div>
-                <textarea name='message' placeholder='message' onChange={handleChange} />
-              </div>
-              <input className='courses' type='courses' name='courses' onChange={handleChange}/>
-              <button type='submit'>Send Message</button>
-              <p>{message}</p>
-            </StyledForm>
+            <FormWrapper>
+              <StyledForm onSubmit={sendToSanity}>
+                <div> 
+                  <input type='text' placeholder='Name' name='name' onChange={handleChange}/>
+                </div>
+                <div>
+                  <input type='email' placeholder='Email' name='email' onChange={handleChange}/>
+                </div>
+                <div>
+                  <textarea name='message' placeholder='Message' onChange={handleChange} />
+                </div>
+                <input className='courses' type='courses' name='courses' onChange={handleChange}/>
+                <button type='submit'>Send Message</button>
+                <p>{message}</p>
+              </StyledForm>
+            </FormWrapper>
           </StyledContact>
         )
         : <HeaderStyles>{message}</HeaderStyles>
