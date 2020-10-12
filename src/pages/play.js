@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 // import ReactPlayer from 'react-player';
 import styled from 'styled-components';
 import YouTube from '@u-wave/react-youtube';
+import load from '../assets/images/loader.svg';
 
 const PlayStyled = styled.div`
   display: flex;
@@ -61,15 +62,18 @@ export default function Play({data}) {
         {data.allDataJson.nodes[2].playheadline} <StyledSpan>{data.allDataJson.nodes[2].playhighlight}</StyledSpan>
       </HeaderStyles>
       <p>{data.allDataJson.nodes[2].playcontent}</p>
-      <StyledGrid>
         {
           items.length !== 0
-          ? (items.items.map(item => {
-            return <YouTube video={item.id.videoId} width='100%' height='280px' />
-          }))
-          : <HeaderStyles><StyledSpan>Loading...</StyledSpan></HeaderStyles>
+          ? (<StyledGrid>
+            {
+              items.items.map(item => {
+                return <YouTube video={item.id.videoId} width='100%' height='280px' />
+              })
+            }  
+            </StyledGrid>)
+          // : <HeaderStyles><StyledSpan>Loading...</StyledSpan></HeaderStyles>
+          : <img src={load} alt='loader' />
         }
-      </StyledGrid>
     </PlayStyled>
   );
 }

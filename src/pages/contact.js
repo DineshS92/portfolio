@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby';
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
+import load from '../assets/images/loader.svg';
 
 const StyledContact = styled.div`
   text-align: center;
@@ -129,7 +130,7 @@ export default function Contact({data}) {
             <div className='distance'>
               {
                 distance === null
-                ? <HeaderStyles><StyledSpan>{data.allDataJson.nodes[3].loading}</StyledSpan></HeaderStyles>
+                ? <img src={load} alt='loader' />
                 : distance === 0
                   ? <HeaderStyles>{data.allDataJson.nodes[3].connect}<br />{data.allDataJson.nodes[3].headlineCF1} <StyledSpan>{data.allDataJson.nodes[3].emailCF}</StyledSpan> </HeaderStyles>
                   : <HeaderStyles>{data.allDataJson.nodes[3].headlineCF2}<StyledSpan> {distance} Kms or {Math.floor(distance * 0.62)} Miles </StyledSpan>{data.allDataJson.nodes[3].headlineCF3}</HeaderStyles>
