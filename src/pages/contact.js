@@ -12,7 +12,8 @@ const StyledContact = styled.div`
     margin: 5rem 0;
   }
   @media screen and (max-width: 560px) {
-    margin: 0;
+    margin: unset;
+    margin: 2.5rem 0;
   }
 `;
 const FormWrapper = styled.div`
